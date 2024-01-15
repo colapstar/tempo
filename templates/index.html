@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Movie Recommendation Form</title>
+    <!-- Include Select2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+
+  </head>
+  <body>
+    <div class="form-container">
+    <form action="/" method="post">
+      <label for="age">Age:</label>
+      <select name="age" id="age">
+        <option value="1">Under 18</option>
+        <option value="18">18-24</option>
+        <option value="25">25-34</option>
+        <option value="35">35-44</option>
+        <option value="45" selected>45-49</option>
+        <option value="50">50-55</option>
+        <option value="56">56+</option>
+      </select><br />
+
+      <fieldset id="gender">
+        <legend>Gender</legend>
+        <input type="radio" id="male" name="gender" value="M" checked />
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="F" />
+        <label for="female">Female</label>
+    </fieldset>
+    
+
+<!-- Favorite Genres Dropdown -->
+      <div id="favorite_genres">
+        <label for="genres_select">Favorite Genres:</label><br>
+        <select id="genres_select" name="favorite_genres" multiple="multiple" style="width: 100%;">
+            <option value="Action">Action</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Animation">Animation</option>
+            <option value="Children's">Children's</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Crime">Crime</option>
+            <option value="Documentary">Documentary</option>
+            <option value="Drama">Drama</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Film-Noir">Film-Noir</option>
+            <option value="Horror">Horror</option>
+            <option value="Musical">Musical</option>
+            <option value="Mystery">Mystery</option>
+            <option value="Romance">Romance</option>
+            <option value="Sci-Fi">Sci-Fi</option>
+            <option value="Thriller">Thriller</option>
+            <option value="War">War</option>
+            <option value="Western">Western</option>
+        </select>
+      </div>
+
+    
+
+      <label for="occupation">Occupation:</label>
+      <select required name="occupation" id="occupation">
+        <option value="0">Other/Not Specified</option>
+        <option value="1">Academic/Teacher</option>
+        <option value="2">Artist</option>
+        <option value="3">Clerical/Admin</option>
+        <option value="4">College/Grad Student</option>
+        <option value="5">Customer Service</option>
+        <option value="6">Doctor/Health Care</option>
+        <option value="7">Executive/Managerial</option>
+        <option value="8">Farmer</option> 
+        <option value="9">Homemaker</option>
+        <option value="10">K-12 Student</option>
+        <option value="11">Lawyer</option>
+        <option value="12">Programmer</option>
+        <option value="13">Retired</option>
+        <option value="14">Sales/Marketing</option>
+        <option value="15">Scientist</option>
+        <option value="16">Self-Employed</option>
+        <option value="17">Technician/Engineer</option>
+        <option value="18">Tradesman/Craftsman</option>
+        <option value="19">Unemployed</option>
+        <option value="20">Writer</option>
+      </select><br />
+
+
+      <label for="favorite_movie">Favorite Movie:</label>
+    </br>
+      <select id="favorite_movie" name="favorite_movie">
+        <!-- Options will be dynamically loaded -->
+      </select><br />
+
+      <input type="submit" value="Get Recommendations" />
+    </form>
+    </div>
+
+    <div id="recommendations">
+      {% if movies %}
+          <h2>Recommended Movies</h2>
+          <ul>
+              {% for movie in movies %}
+                  <li>{{ movie }}</li>
+              {% endfor %}
+          </ul>
+      {% elif form_submitted %}
+          <p>No recommendations could be drawn.</p>
+      {% endif %}
+  </div>
+  
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <!-- Include your generated movies.js file -->
+    <script src="{{ url_for('static', filename='js/movies.js') }}"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#favorite_movie").select2({
+                placeholder: "Select or search for a movie",
+                allowClear: true,
+                minimumInputLength: 1, // User must type at least 1 character to search
+                data: movies
+            });
+        });
+
+    $(document).ready(function () {
+        $('#genres_select').select2({
+            placeholder: 'Select your favorite genres',
+            allowClear: true
+        });
+    });
+
+    </script>
+  </body>
+</html>

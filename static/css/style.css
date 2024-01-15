@@ -1,0 +1,168 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #232323;
+    color: #f0f0f0;
+    line-height: 1.6;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* This will take the full height of the viewport */
+    padding: 20px;
+    background-color: #121212; /* Adjust the background color as needed */
+}
+
+/* Styling the form itself */
+form {
+    width: 100%; /* Adjust this as needed */
+    max-width: 600px; /* Maximum width of the form */
+    margin: auto; /* This will help in centering */
+    background-color: #1e1e1e; /* Form background */
+    padding: 40px; /* Padding inside the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Adding a subtle shadow */
+}
+label {
+    display: block;
+    margin-bottom: 15px;
+    color: #e0e0e0;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+}
+
+input[type="submit"] {
+    background: linear-gradient(to right, #ff416c, #ff4b2b);
+    color: #fff;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background: linear-gradient(to right, #ff576e, #ff5b3b);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    margin-right: 15px;
+}
+
+#favorite_genres label {
+    margin-right: 25px;
+}
+
+.select2-container--default .select2-selection--single {
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 5px;
+    height: 45px;
+    color: #fff;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 45px;
+    padding-left: 15px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 43px;
+    right: 15px;
+}
+
+.select2-dropdown {
+    background-color: #333;
+    border-color: #555;
+}
+
+.select2-results__option {
+    padding: 15px;
+    color: #fff;
+}
+
+.select2-results__option--highlighted[aria-selected] {
+    background-color: #ff416c;
+}
+
+@media (max-width: 768px) {
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    select,
+    textarea {
+        width: 100%;
+    }
+}
+
+/* Styling the Recommendations Container */
+#recommendations {
+    max-width: 600px; /* Same width as the form for consistency */
+    margin: 20px auto; /* Centering the container */
+    padding: 20px;
+    background-color: #1e1e1e; /* Same background color as the form */
+    border-radius: 8px; /* Same border radius as the form */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Same shadow as the form */
+    color: #fff; /* Text color */
+}
+
+#recommendations h2 {
+    text-align: center; /* Centering the title */
+    margin-bottom: 20px; /* Spacing under the title */
+}
+
+#recommendations ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+}
+
+#recommendations li {
+    background-color: #2e2e2e; /* Slightly different background for list items */
+    margin-bottom: 10px; /* Spacing between items */
+    padding: 10px; /* Padding inside items */
+    border-radius: 4px; /* Rounded corners for list items */
+}
+
+#recommendations p {
+    text-align: center; /* Centering the text */
+}
+
+/* Styling for the fieldset */
+fieldset {
+    border: 1px solid #444;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #2e2e2e;
+}
+
+/* Styling for the legend */
+legend {
+    color: #fff;
+    font-weight: bold;
+    padding: 0 5px;
+}
+
+/* Additional styling for radio buttons and labels */
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+label {
+    margin-right: 20px; /* Spacing between label and next input */
+    color: #fff;
+}
